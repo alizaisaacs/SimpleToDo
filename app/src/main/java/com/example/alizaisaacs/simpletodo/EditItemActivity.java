@@ -1,7 +1,10 @@
 package com.example.alizaisaacs.simpletodo;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +21,8 @@ public class EditItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
@@ -28,7 +33,10 @@ public class EditItemActivity extends AppCompatActivity {
         // update position from intent extra
         position = getIntent().getIntExtra(ITEM_POSITION, 0);
         //update the title bar of the activity
-        getSupportActionBar().setTitle("Edit Item");
+        ActionBar bar = getSupportActionBar();
+        bar.setTitle("Edit Item");
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#154360")));
+        //getSupportActionBar().setTitle("Edit Item");
     }
 
     //handler for save button

@@ -1,8 +1,12 @@
 package com.example.alizaisaacs.simpletodo;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,14 +35,23 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ActionBar bar = getSupportActionBar();
+        bar.setTitle("Your To-Do List");
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#154360")));
+
         readItems();
 
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        itemsAdapter = new ArrayAdapter<String>(this, R.layout.listrow, R.id.editText, items);
         lvItems = findViewById(R.id.lvItems);
         lvItems.setAdapter(itemsAdapter);
 
@@ -116,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //resistance
+    @NonNull
     private File getDataFile() {
         return new File(getFilesDir(), "todo.txt");
     }
