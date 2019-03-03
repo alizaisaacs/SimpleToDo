@@ -1,0 +1,34 @@
+import java.util.Scanner;
+import javax.swing.*;
+
+
+public class Log{
+    String firstName;
+    String lastName;
+    String username;
+    String password;
+    String email;
+
+public void setFirstName(String first){
+firstName = first;
+}
+
+public void setLastName(String last){
+firstName = last;
+}
+
+public void setUsername(String user){
+userName = user;
+}
+
+public void setPassword(String pass){
+password = pass;
+}
+
+public void setEmail(String em){
+email = em;
+}
+
+
+/*prompt user for things and set those things */
+
